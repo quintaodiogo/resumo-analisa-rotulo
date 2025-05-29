@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Camera } from "lucide-react"
+import { Link } from "react-router-dom"
 export function Header() {
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId)
@@ -19,7 +20,7 @@ export function Header() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex items-center justify-center">
-          <a href="/">
+          <Link to="/">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -31,7 +32,7 @@ export function Header() {
               </div>
               <h1 className="text-xl font-bold text-gray-900">AnalisaRótulo</h1>
             </motion.div>
-          </a>
+          </Link>
         </div>
       </div>
     </motion.header>

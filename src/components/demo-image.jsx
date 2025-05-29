@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-
+import rotulo from "../../public/rotuloLeite.png"
 export function DemoImage() {
   return (
     <motion.div
@@ -14,7 +14,7 @@ export function DemoImage() {
         <h3 className="text-lg font-semibold text-gray-900 mb-4 text-center">Rótulo Analisado</h3>
         <div className="relative">
           <img
-            src="/img/rotuloLeite.png"
+            src={rotulo}
             alt="Rótulo de Leite UHT Integral - Leitíssimo"
             width={400}
             height={300}

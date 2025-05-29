@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 import { Upload, X } from "lucide-react"
-
+import { Link } from "react-router-dom"
 import { Button } from "../components/ui/button"
 import { Card, CardContent } from "../components/ui/card"
 
@@ -26,11 +26,11 @@ export function UploadSection({ uploadedImage, isAnalyzing, onImageUpload, onRes
                     </Button>
                   </label>
                   <div>
-                    <a href="/demo">
+                    <Link to="/demo">
                       <Button variant="outline" className="w-full sm:w-auto sm:ml-4">
                         Ver Demonstração
                       </Button>
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 <input id="image-upload" type="file" accept="image/*" onChange={onImageUpload} className="hidden" />
