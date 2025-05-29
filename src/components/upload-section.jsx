@@ -1,8 +1,8 @@
 import { motion } from "framer-motion"
 import { Upload, X } from "lucide-react"
 
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { Button } from "../components/ui/button"
+import { Card, CardContent } from "../components/ui/card"
 
 export function UploadSection({ uploadedImage, isAnalyzing, onImageUpload, onReset }) {
   return (

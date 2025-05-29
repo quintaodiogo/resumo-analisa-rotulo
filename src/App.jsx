@@ -1,6 +1,6 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import DemoPage from "./components/DemoPage"; // que é seu arquivo demo atual (ex-App.jsx)
-import LabelAnalyzer from "./components/LabelAnalyzer"; // novo arquivo
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import DemoPage from "./components/DemoPage"; 
+import LabelAnalyzer from "./components/LabelAnalyzer"; 
 import Layout from "./Layout";
 
 export default function App() {

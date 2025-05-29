@@ -2,8 +2,8 @@ import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { AlertTriangle, ChefHat, Shield, Zap } from "lucide-react"
 
-import { Alert, AlertDescription } from "@/components/ui/alert"
-import { UploadSection } from "@/components/upload-section"
+import { Alert, AlertDescription } from "../components/ui/alert"
+import { UploadSection } from "../components/upload-section"
 
 export default function LabelAnalyzer() {
   const [uploadedImage, setUploadedImage] = useState(null)

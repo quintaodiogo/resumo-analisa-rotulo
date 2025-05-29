@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import { Camera } from "lucide-react"
 
-import { DemoResults } from "@/components/demo-results"
+import { DemoResults } from "../components/demo-results"
 
 export default function DemoPage() {
   return (

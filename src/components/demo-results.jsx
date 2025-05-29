@@ -2,8 +2,8 @@
 
 import { motion } from "framer-motion"
 import { Leaf, ChefHat, Shield, CheckCircle, AlertTriangle } from "lucide-react"
-import { Badge } from "@/components/ui/badge"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "../components/ui/badge"
+import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card"
 import { DemoImage } from "./demo-image"
 
 const demoData = {
