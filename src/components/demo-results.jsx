@@ -23,7 +23,7 @@ const demoData = {
     claims: ["Fonte de cálcio", "Sem conservantes"],
     warnings: [ "Contém leite", "Contém lactose", "Manter refrigerado após aberto", "Não contém glúten"],
     servingSize: "200ml (1 copo)",
-    storageInstructions: "Conservar em local seco e arejado. Após aberto, manter refrigerado e consumir em até 3 dias."
+    storageInstructions: "Conservar em local seco e arejado. Após aberto, manter refrigerado e consumir em até 2 dias."
   }
 }
 

@@ -1,9 +1,8 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { ArrowLeft, Camera } from "lucide-react"
+import { Camera } from "lucide-react"
 
-import { Button } from "@/components/ui/button"
 import { DemoResults } from "@/components/demo-results"
 import { Footer } from "@/components/layout/footer"
 import { Header } from "@/components/layout/header"
@@ -81,26 +80,6 @@ export default function DemoPage() {
         </motion.div>
 
         {/* Call to Action */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.2 }}
-          className="text-center mt-16 mb-8"
-        >
-          <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 text-white">
-            <h3 className="text-2xl font-bold mb-4">Pronto para Analisar Seus Próprios Produtos?</h3>
-            <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-              Agora que você viu como funciona, experimente com seus próprios rótulos! Envie uma foto e descubra
-              sobre seus produtos em segundos.
-            </p>
-            <a href="/">
-              <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 font-semibold">
-                Começar Análise Real
-                <ArrowLeft className="w-5 h-5 ml-2 rotate-180" />
-              </Button>
-            </a>
-          </div>
-        </motion.div>
       </main>
 
       <Footer />
