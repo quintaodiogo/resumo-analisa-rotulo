@@ -2,8 +2,31 @@
 
 import { motion } from "framer-motion"
 import { Camera } from "lucide-react"
+import { ResultsCard } from "./components/ResultsCard"
+import image from "/rotuloLeite.png"
 
-import { DemoResults } from "../components/demo-results"
+const demoData = {
+  productName: "Leite UHT Integral",
+  productDescription: "Leitíssimo • 1L",
+  brand: "Leitíssimo ",
+  status: "Análise Completa",
+  ingredients: [
+    { name: "Leite in natura", description: " Leite integral puro, direto da fazenda, sem aditivos", safe: true },
+    { name: "Estabilizante citrato de sódio", description: "Ingrediente utilizado para manter a textura e estabilidade do leite UHT durante o armazenamento", safe: true },
+  ],
+  nutrition: [
+    { label: "Calorias", value: "240 por copo", category: "calories" },
+    { label: "Proteína", value: "6,9g", category: "protein" },
+    { label: "Cálcio", value: "24% VD", category: "minerals" },
+    { label: "Gordura", value: "8g", category: "fat" },
+  ],
+  additionalInfo: {
+    claims: ["Fonte de cálcio", "Sem conservantes"],
+    warnings: ["Contém lactose"],
+    servingSize: "200ml (1 copo)",
+    storageInstructions: "Conservar em local seco e arejado. Após aberto, manter refrigerado e consumir em até 2 dias."
+  }
+}
 
 export default function DemoPage() {
   return (
@@ -71,7 +94,7 @@ export default function DemoPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <DemoResults />
+      <ResultsCard data={demoData} imgSrc={image} />
         </motion.div>
       </div>
   )

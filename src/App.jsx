@@ -1,7 +1,7 @@
 import { HashRouter, Routes, Route } from "react-router-dom";
 import Layout from "./Layout";
-import DemoPage from "./components/DemoPage";
-import LabelAnalyzer from "./components/LabelAnalyzer";
+import DemoPage from "./DemoPage";
+import LabelAnalyzer from "./LabelAnalyzer";
 
 export default function App() {
   return (

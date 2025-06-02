@@ -2,32 +2,13 @@
 
 import { motion } from "framer-motion"
 import { Leaf, ChefHat, Shield, CheckCircle, AlertTriangle } from "lucide-react"
-import { Badge } from "../components/ui/badge"
-import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card"
-import { DemoImage } from "./demo-image"
+import { Badge } from "./ui/badge"
+import { Card, CardContent, CardHeader, CardTitle } from "./ui/card"
+import { ImageCard } from "./ImageCard"
 
-const demoData = {
-  productName: "Leite UHT Integral",
-  brand: "Leitíssimo",
-  ingredients: [
-    { name: "Leite in natura", description: " Leite integral puro, direto da fazenda, sem aditivos", safe: true },
-    { name: "Estabilizante citrato de sódio", description: "Ingrediente utilizado para manter a textura e estabilidade do leite UHT durante o armazenamento", safe: true },
-  ],
-  nutrition: [
-    { label: "Calorias", value: "240 por copo", category: "calories" },
-    { label: "Proteína", value: "6,9g", category: "protein" },
-    { label: "Cálcio", value: "24% VD", category: "minerals" },
-    { label: "Gordura", value: "8g", category: "fat" },
-  ],
-  additionalInfo: {
-    claims: ["Fonte de cálcio", "Sem conservantes"],
-    warnings: [ "Contém leite", "Contém lactose", "Manter refrigerado após aberto", "Não contém glúten"],
-    servingSize: "200ml (1 copo)",
-    storageInstructions: "Conservar em local seco e arejado. Após aberto, manter refrigerado e consumir em até 2 dias."
-  }
-}
+export function ResultsCard({ data, imgSrc }) {
+  if (!data) return null
 
-export function DemoResults() {
   const getCategoryIcon = (category) => {
     switch (category) {
       case "calories":
@@ -44,7 +25,15 @@ export function DemoResults() {
 
   return (
     <>
-      <DemoImage />
+
+      {imgSrc && (
+        <ImageCard
+          imgSrc={imgSrc}
+          productName={data.productName}
+          productDescription={data.productDescription}
+          status={data.status}
+        />
+      )}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -59,20 +48,20 @@ export function DemoResults() {
         >
           <h3 className="text-2xl font-bold text-gray-900 mb-2">Análise Concluída</h3>
           <div className="mb-4">
-            <h4 className="text-xl font-semibold text-gray-800">{demoData.productName}</h4>
-            <p className="text-gray-600">Marca: {demoData.brand}</p>
+            <h4 className="text-xl font-semibold text-gray-800">{data.productName}</h4>
+            <p className="text-gray-600">Marca: {data.brand}</p>
           </div>
           <p className="text-gray-600">Aqui está o que encontramos no seu rótulo</p>
         </motion.div>
-
-        <div className="grid md:grid-cols-2 gap-6">
-          {/* Ingredients */}
+        <div className="grid md:grid-cols-2 gap-6 items-stretch">
+          {/* Ingredientes */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
+            className="h-full"
           >
-            <Card className="rounded-2xl shadow-lg border-0 bg-white">
+            <Card className="h-full rounded-2xl shadow-lg border-0 bg-white">
               <CardHeader className="pb-4">
                 <CardTitle className="flex items-center space-x-2">
                   <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
@@ -82,7 +71,7 @@ export function DemoResults() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
-                {demoData.ingredients.map((ingredient, index) => (
+                {data.ingredients.map((ingredient, index) => (
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, y: 10 }}
@@ -100,14 +89,14 @@ export function DemoResults() {
               </CardContent>
             </Card>
           </motion.div>
-
-          {/* Nutritional Facts */}
+          {/* Informações Nutricionais */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
+            className="h-full"
           >
-            <Card className="rounded-2xl shadow-lg border-0 bg-white">
+            <Card className="h-full rounded-2xl shadow-lg border-0 bg-white">
               <CardHeader className="pb-4">
                 <CardTitle className="flex items-center space-x-2">
                   <div className="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center">
@@ -117,7 +106,7 @@ export function DemoResults() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
-                {demoData.nutrition.map((nutrient, index) => {
+                {data.nutrition.map((nutrient, index) => {
                   const IconComponent = getCategoryIcon(nutrient.category)
                   return (
                     <motion.div
@@ -139,15 +128,14 @@ export function DemoResults() {
             </Card>
           </motion.div>
         </div>
-
-        {/* Additional Information */}
         <div className="grid md:grid-cols-2 gap-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
+            className="h-full"
           >
-            <Card className="rounded-2xl shadow-lg border-0 bg-white">
+            <Card className="h-full rounded-2xl shadow-lg border-0 bg-white">
               <CardHeader className="pb-4">
                 <CardTitle className="flex items-center space-x-2">
                   <div className="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center">
@@ -160,7 +148,7 @@ export function DemoResults() {
                 <div>
                   <h4 className="font-medium text-gray-900 mb-2">Alegações do Produto</h4>
                   <div className="flex flex-wrap gap-2">
-                    {demoData.additionalInfo.claims.map((claim, index) => (
+                    {data.additionalInfo.claims.map((claim, index) => (
                       <motion.div
                         key={index}
                         initial={{ opacity: 0, scale: 0.8 }}
@@ -177,7 +165,7 @@ export function DemoResults() {
                 <div>
                   <h4 className="font-medium text-gray-900 mb-2">Avisos Importantes</h4>
                   <div className="space-y-2">
-                    {demoData.additionalInfo.warnings.map((warning, index) => (
+                    {data.additionalInfo.warnings.map((warning, index) => (
                       <motion.div
                         key={index}
                         initial={{ opacity: 0, x: -10 }}
@@ -194,13 +182,13 @@ export function DemoResults() {
               </CardContent>
             </Card>
           </motion.div>
-
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.7 }}
+            className="h-full"
           >
-            <Card className="rounded-2xl shadow-lg border-0 bg-white">
+            <Card className="h-full rounded-2xl shadow-lg border-0 bg-white">
               <CardHeader className="pb-4">
                 <CardTitle className="flex items-center space-x-2">
                   <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center">
@@ -217,7 +205,7 @@ export function DemoResults() {
                   className="p-3 bg-gray-50 rounded-lg"
                 >
                   <span className="font-medium text-gray-900">Tamanho da Porção: </span>
-                  <span className="text-gray-600">{demoData.additionalInfo.servingSize}</span>
+                  <span className="text-gray-600">{data.additionalInfo.servingSize}</span>
                 </motion.div>
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
@@ -226,7 +214,7 @@ export function DemoResults() {
                   className="p-3 bg-gray-50 rounded-lg"
                 >
                   <span className="font-medium text-gray-900">Armazenamento: </span>
-                  <span className="text-gray-600">{demoData.additionalInfo.storageInstructions}</span>
+                  <span className="text-gray-600">{data.additionalInfo.storageInstructions}</span>
                 </motion.div>
               </CardContent>
             </Card>
