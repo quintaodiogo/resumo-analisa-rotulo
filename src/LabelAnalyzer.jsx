@@ -40,7 +40,7 @@ export default function LabelAnalyzer() {
       const blob = await res.blob()
       const formData = new FormData()
       formData.append("file", blob, "rotulo.png")
-      const response = await fetch("https://backend-resumo-analisarotulo.onrender.com/upload", {
+      const response = await fetch("https://backend-resumo-analisarotulo-production.up.railway.app/upload", {
         method: "POST",
         body: formData,
       })
